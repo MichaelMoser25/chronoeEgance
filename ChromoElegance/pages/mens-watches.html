@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Watches | Chrono Elegance</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* Category page specific styles */
+        .category-header {
+            height: 40vh;
+            background: linear-gradient(rgba(2,6,23,0.7), rgba(2,6,23,0.7)), url('https://source.unsplash.com/random/1200x800/?mens,luxury,watch') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            padding: 0 2rem;
+        }
+        
+        .category-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--light);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .breadcrumb a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+        
+        .breadcrumb-separator {
+            color: var(--accent);
+        }
+        
+        .category-description {
+            max-width: 600px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .filters-container {
+            background-color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .filters-title {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .filters-title h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .filter-select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition);
+        }
+        
+        .filter-select:focus {
+            border-color: var(--accent);
+        }
+        
+        .filter-actions {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+        }
+        
+        .clear-filters {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
+            transition: var(--transition);
+        }
+        
+        .clear-filters:hover {
+            color: var(--primary);
+        }
+        
+        .results-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .results-count {
+            color: var(--secondary);
+        }
+        
+        .sort-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+        
+        .pagination-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #e2e8f0;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .pagination-btn.active {
+            background-color: var(--accent);
+            color: var(--dark);
+            border-color: var(--accent);
+        }
+        
+        .pagination-btn:hover:not(.active) {
+            background-color: #f8fafc;
+        }
+        
+        .no-products {
+            text-align: center;
+            padding: 3rem;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .no-products i {
+            font-size: 3rem;
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+        
+        .no-products h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .no-products p {
+            color: var(--secondary);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-clock"></i>
+                <h1>Chrono<span>Elegance</span></h1>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../pages/index.html">Home</a></li>
+                    <li><a href="#" class="active">Collections</a></li>
+                    <li><a href="../pages/mens-watches.html" class="active">Watches</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-icons">
+                <div class="nav-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="nav-icon">
+                    <i class="far fa-user"></i>
+                </div>
+                <div class="nav-icon">
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class="nav-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Header -->
+    <section class="category-header">
+        <div class="breadcrumb">
+            <a href="../pages/index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="#">Collections</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="../pages/mens-watches.html">Men's Watches</a>
+        </div>
+        <h1 class="category-title">Men's Watches</h1>
+        <p class="category-description">Discover our collection of premium timepieces crafted for the modern gentleman. Each watch is a testament to exceptional craftsmanship and sophisticated design.</p>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <!-- Filters -->
+            <div class="filters-container">
+                <div class="filters-title">
+                    <h3>Filter Watches</h3>
+                    <button id="toggle-filters" class="btn-secondary" style="background: none; border: none; cursor: pointer;">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                </div>
+                <div class="filter-controls" id="filter-controls">
+                    <div class="filter-group">
+                        <label for="collection-filter">Collection</label>
+                        <select id="collection-filter" class="filter-select">
+                            <option value="">All Collections</option>
+                            <option value="luxury">Luxury Collection</option>
+                            <option value="sport">Sport Collection</option>
+                            <option value="vintage">Vintage Collection</option>
+                            <option value="casual">Casual Collection</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="price-filter">Price Range</label>
+                        <select id="price-filter" class="filter-select">
+                            <option value="">All Prices</option>
+                            <option value="0-1000">Under $1,000</option>
+                            <option value="1000-2000">$1,000 - $2,000</option>
+                            <option value="2000-3000">$2,000 - $3,000</option>
+                            <option value="3000-5000">$3,000 - $5,000</option>
+                            <option value="5000+">$5,000 & Above</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="feature-filter">Features</label>
+                        <select id="feature-filter" class="filter-select">
+                            <option value="">All Features</option>
+                            <option value="chronograph">Chronograph</option>
+                            <option value="automatic">Automatic</option>
+                            <option value="quartz">Quartz</option>
+                            <option value="diving">Diving</option>
+                        </select>
+                    </div>
+                    <div class="filter-actions">
+                        <button id="apply-filters" class="btn">Apply Filters</button>
+                        <a href="#" class="clear-filters" id="clear-filters">Clear Filters</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Info -->
+            <div class="results-info">
+                <div class="results-count">Showing <span id="product-count">0</span> products</div>
+                <div class="sort-container">
+                    <select id="sort-select" class="sort-select">
+                        <option value="featured">Featured</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="name-asc">Name: A to Z</option>
+                        <option value="name-desc">Name: Z to A</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-container" id="mens-products-container">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+
+            <!-- Pagination -->
+    <div class="pagination">
+        <!-- Pagination will be generated by JavaScript -->
+    </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2 class="newsletter-title">Subscribe to Our Newsletter</h2>
+            <p class="newsletter-text">Be the first to know about new collections, exclusive offers, and special events.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address">
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column footer-about">
+                <div class="footer-logo">
+                    <i class="fas fa-clock"></i>
+                    <h2>Chrono<span>Elegance</span></h2>
+                </div>
+                <p>We are dedicated to providing exceptional timepieces that combine masterful craftsmanship with elegant design, creating watches that are not just accessories but heirlooms.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Collections</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> New Arrivals</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column footer-links">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Shipping Policy</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Returns & Exchanges</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Watch Care</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Size Guide</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-details">
+                        123 Luxury Avenue<br>
+                        New York, NY 10001
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="contact-details">
+                        +1 (555) 123-4567
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-details">
+                        info@chronoelegance.com
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2025 ChronoElegance. All Rights Reserved.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa payment-method"></i>
+                <i class="fab fa-cc-mastercard payment-method"></i>
+                <i class="fab fa-cc-amex payment-method"></i>
+                <i class="fab fa-cc-paypal payment-method"></i>
+                <i class="fab fa-cc-apple-pay payment-method"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div class="admin-modal" id="admin-modal">
+        <div class="admin-modal-content">
+            <span class="admin-close">&times;</span>
+            <h2>Admin Login</h2>
+            <form id="admin-login-form">
+                <div class="form-group">
+                    <label for="admin-username">Username</label>
+                    <input type="text" id="admin-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <input type="password" id="admin-password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="../js/mens-watches.js"></script>
+    <script src="../js/product-manager.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Chrono Elegance</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/admin.css">
+</head>
+<body>
+    <div class="admin-dashboard">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <div class="sidebar-toggle">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="admin-logo">
+                <i class="fas fa-clock"></i>
+                <h2>Chrono<span>Elegance</span></h2>
+            </div>
+            <ul class="admin-menu">
+                <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="#"><i class="fas fa-box"></i> <span>Products</span></a></li>
+                <li><a href="#"><i class="fas fa-tags"></i> <span>Categories</span></a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i> <span>Orders</span></a></li>
+                <li><a href="#"><i class="fas fa-users"></i> <span>Customers</span></a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> <span>Reports</span></a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+                <li><a href="../pages/index.html"><i class="fas fa-store"></i> <span>View Store</span></a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="admin-main">
+            <!-- Header -->
+            <div class="admin-header">
+                <h2 class="admin-title">Dashboard</h2>
+                <div class="admin-user">
+                    <div class="admin-user-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="admin-user-info">
+                        <div class="admin-user-name">Admin User</div>
+                        <div class="admin-user-role">Administrator</div>
+                    </div>
+                    <button class="admin-logout" id="logoutBtn" title="Logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="admin-cards">
+                <div class="admin-card">
+                    <div class="admin-card-icon products">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="admin-card-info">
+                        <h3>24</h3>
+                        <p>Total Products</p>
+                    </div>
+                </div>
+                <div class="admin-card">
+                    <div class="admin-card-icon sales">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="admin-card-info">
+                        <h3>$25,430</h3>
+                        <p>Total Sales</p>
+                    </div>
+                </div>
+                <div class="admin-card">
+                    <div class="admin-card-icon customers">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="admin-card-info">
+                        <h3>96</h3>
+                        <p>Customers</p>
+                    </div>
+                </div>
+                <div class="admin-card">
+                    <div class="admin-card-icon orders">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="admin-card-info">
+                        <h3>124</h3>
+                        <p>Orders</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Tab Container -->
+            <div class="tab-wrapper">
+                <div class="admin-tabs">
+                    <div class="admin-tab active">Add Product</div>
+                    <div class="admin-tab">Manage Products</div>
+                    <div class="admin-tab">Categories</div>
+                </div>
+
+                <!-- Add Product Tab -->
+                <div class="admin-content active">
+                    <form id="product-form" class="admin-form">
+                        <h3 class="form-title">Add New Watch</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-title">Product Title</label>
+                                <input type="text" id="product-title" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-price">Price ($)</label>
+                                <input type="number" id="product-price" name="price" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-description">Description</label>
+                            <textarea id="product-description" name="description" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-category">Category</label>
+                                <select id="product-category" name="category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="men">Men's Watches</option>
+                                    <option value="women">Women's Watches</option>
+                                    <option value="smart">Smart Watches</option>
+                                    <option value="accessories">Accessories</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-collection">Collection</label>
+                                <select id="product-collection" name="collection" required>
+                                    <option value="">Select Collection</option>
+                                    <option value="luxury">Luxury Collection</option>
+                                    <option value="sport">Sport Collection</option>
+                                    <option value="vintage">Vintage Collection</option>
+                                    <option value="casual">Casual Collection</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Product Tags</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="product-new" name="isNew">
+                                        <label for="product-new">New Arrival</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="product-sale" name="isSale">
+                                        <label for="product-sale">On Sale</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="product-featured" name="isFeatured">
+                                        <label for="product-featured">Featured</label>
+                                    </div>
+                                </div>
+                                <div id="sale-percentage" class="sale-percentage">
+                                    <label for="product-sale-percentage">Sale Percentage (%)</label>
+                                    <input type="number" id="product-sale-percentage" name="salePercentage" min="1" max="99" value="10">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-stock">Stock Quantity</label>
+                                <input type="number" id="product-stock" name="stock" min="0" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Product Image</label>
+                            <div class="image-preview" id="image-preview">
+                                <i class="fas fa-image" style="font-size: 3rem; color: #cbd5e1;"></i>
+                            </div>
+                            <div class="image-upload">
+                                <input type="file" id="product-image" name="image" accept="image/*" style="display: none;">
+                                <button type="button" id="upload-btn" class="btn btn-secondary image-upload-btn">Choose Image</button>
+                                <button type="button" id="remove-img-btn" class="btn btn-danger image-upload-btn" style="display: none;">Remove</button>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-specs">Specifications</label>
+                                <textarea id="product-specs" name="specs" placeholder="Enter product specifications in bullet points"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-features">Features</label>
+                                <textarea id="product-features" name="features" placeholder="Enter product features in bullet points"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn">Add Product</button>
+                            <button type="reset" class="btn btn-secondary" style="margin-left: 10px;">Reset</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Manage Products Tab -->
+                <div class="admin-content">
+                    <div class="search-filter">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search products...">
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="filter-options">
+                            <select class="filter-select">
+                                <option value="">All Categories</option>
+                                <option value="men">Men's Watches</option>
+                                <option value="women">Women's Watches</option>
+                                <option value="smart">Smart Watches</option>
+                                <option value="accessories">Accessories</option>
+                            </select>
+                            <select class="filter-select">
+                                <option value="">All Collections</option>
+                                <option value="luxury">Luxury Collection</option>
+                                <option value="sport">Sport Collection</option>
+                                <option value="vintage">Vintage Collection</option>
+                                <option value="casual">Casual Collection</option>
+                            </select>
+                            <select class="filter-select">
+                                <option value="">Sort By</option>
+                                <option value="price-asc">Price: Low to High</option>
+                                <option value="price-desc">Price: High to Low</option>
+                                <option value="name-asc">Name: A to Z</option>
+                                <option value="name-desc">Name: Z to A</option>
+                                <option value="stock-asc">Stock: Low to High</option>
+                            </select>
+                        </div>
+                    </div>
+                    <table class="admin-table products-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Collection</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="https://source.unsplash.com/random/300x300/?luxury,watch,1" alt="Watch" class="table-img"></td>
+                                <td>Celestial Chronograph</td>
+                                <td>$1,250.00</td>
+                                <td>Men's Watches</td>
+                                <td>Luxury Collection</td>
+                                <td>15</td>
+                                <td><span class="badge new">New</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn btn-sm">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="https://source.unsplash.com/random/300x300/?luxury,watch,2" alt="Watch" class="table-img"></td>
+                                <td>Royal Automatic</td>
+                                <td>$1,950.00</td>
+                                <td>Men's Watches</td>
+                                <td>Luxury Collection</td>
+                                <td>8</td>
+                                <td><span class="badge sale">20% Off</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn btn-sm">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="https://source.unsplash.com/random/300x300/?luxury,watch,3" alt="Watch" class="table-img"></td>
+                                <td>Oceanic Diver</td>
+                                <td>$2,850.00</td>
+                                <td>Men's Watches</td>
+                                <td>Sport Collection</td>
+                                <td>12</td>
+                                <td><span class="badge active">Active</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn btn-sm">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="https://source.unsplash.com/random/300x300/?luxury,watch,4" alt="Watch" class="table-img"></td>
+                                <td>Alpine Reserve</td>
+                                <td>$3,450.00</td>
+                                <td>Men's Watches</td>
+                                <td>Sport Collection</td>
+                                <td>6</td>
+                                <td><span class="badge new">New</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn btn-sm">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="https://source.unsplash.com/random/300x300/?luxury,watch,5" alt="Watch" class="table-img"></td>
+                                <td>Midnight Elegance</td>
+                                <td>$1,850.00</td>
+                                <td>Women's Watches</td>
+                                <td>Luxury Collection</td>
+                                <td>3</td>
+                                <td><span class="badge sale">12% Off</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn btn-sm">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <div class="pagination-btn"><i class="fas fa-chevron-left"></i></div>
+                        <div class="pagination-btn active">1</div>
+                        <div class="pagination-btn">2</div>
+                        <div class="pagination-btn">3</div>
+                        <div class="pagination-btn"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                </div>
+
+                <!-- Categories Tab -->
+                <div class="admin-content">
+                    <div class="admin-form">
+                        <h3 class="form-title">Add New Category</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="category-name">Category Name</label>
+                                <input type="text" id="category-name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="category-slug">Slug (URL-friendly version of name)</label>
+                                <input type="text" id="category-slug" name="slug" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="category-description">Description</label>
+                            <textarea id="category-description" name="description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="category-parent">Parent Category</label>
+                            <select id="category-parent" name="parent">
+                                <option value="">None (Top Level)</option>
+                                <option value="1">Men's Watches</option>
+                                <option value="2">Women's Watches</option>
+                                <option value="3">Smart Watches</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn">Add Category</button>
+                            <button type="reset" class="btn btn-secondary" style="margin-left: 10px;">Reset</button>
+                        </div>
+                    </div>
+
+                    <table class="admin-table categories-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Slug</th>
+                                <th>Description</th>
+                                <th>Products</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Men's Watches</td>
+                                <td>mens-watches</td>
+                                <td>Premium watches for men</td>
+                                <td>12</td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn btn-sm">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Women's Watches</td>
+                                <td>womens-watches</td>
+                                <td>Elegant watches for women</td>
+                                <td>8</td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn btn-sm">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Smart Watches</td>
+                                <td>smart-watches</td>
+                                <td>Modern watches with smart features</td>
+                                <td>4</td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn btn-sm">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Accessories</td>
+                                <td>accessories</td>
+                                <td>Watch straps, cases, and other accessories</td>
+                                <td>15</td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn btn-sm">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toast-container">
+        <!-- Toasts will be added dynamically -->
+    </div>
+
+    <!-- Admin JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sidebar toggle
+            const sidebarToggle = document.querySelector('.sidebar-toggle');
+            const sidebar = document.querySelector('.admin-sidebar');
+            const mainContent = document.querySelector('.admin-main');
+            
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('collapsed');
+                mainContent.classList.toggle('expanded');
+                
+                // Change icon direction
+                if (sidebar.classList.contains('collapsed')) {
+                    sidebarToggle.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                } else {
+                    sidebarToggle.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                }
+            });
+            
+            // Tab switching
+            const tabs = document.querySelectorAll('.admin-tab');
+            const contents = document.querySelectorAll('.admin-content');
+            
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to the clicked tab and corresponding content
+                    tab.classList.add('active');
+                    contents[index].classList.add('active');
+                });
+            });
+            
+            // Sale percentage toggle
+            const saleCheckbox = document.getElementById('product-sale');
+            const salePercentage = document.getElementById('sale-percentage');
+            
+            saleCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    salePercentage.classList.add('active');
+                } else {
+                    salePercentage.classList.remove('active');
+                }
+            });
+            
+            // Image upload preview
+            const uploadBtn = document.getElementById('upload-btn');
+            const imageInput = document.getElementById('product-image');
+            const imagePreview = document.getElementById('image-preview');
+            const removeImgBtn = document.getElementById('remove-img-btn');
+            
+            uploadBtn.addEventListener('click', function() {
+                imageInput.click();
+            });
+            
+            imageInput.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.innerHTML = `<img src="${e.target.result}" alt="Product Preview">`;
+                        removeImgBtn.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            removeImgBtn.addEventListener('click', function() {
+                imagePreview.innerHTML = '<i class="fas fa-image" style="font-size: 3rem; color: #cbd5e1;"></i>';
+                imageInput.value = '';
+                this.style.display = 'none';
+            });
+            
+            // Logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                showToast('Logging out...', 'info');
+                setTimeout(() => {
+                    localStorage.removeItem('adminLoggedIn');
+                    window.location.href = 'index.html';
+                }, 1500);
+            });
+            
+            // Form submission
+            const productForm = document.getElementById('product-form');
+            if (productForm) {
+                productForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Here would be the code to process the form data
+                    showToast('Product added successfully!', 'success');
+                    this.reset();
+                    imagePreview.innerHTML = '<i class="fas fa-image" style="font-size: 3rem; color: #cbd5e1;"></i>';
+                    removeImgBtn.style.display = 'none';
+                    salePercentage.classList.remove('active');
+                });
+            }
+            
+            // Toast notification function
+            function showToast(message, type = 'success') {
+                const toastContainer = document.getElementById('toast-container');
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                
+                let icon;
+                switch(type) {
+                    case 'success':
+                        icon = 'fa-check-circle';
+                        break;
+                    case 'error':
+                        icon = 'fa-exclamation-circle';
+                        break;
+                    case 'warning':
+                        icon = 'fa-exclamation-triangle';
+                        break;
+                    case 'info':
+                        icon = 'fa-info-circle';
+                        break;
+                    default:
+                        icon = 'fa-info-circle';
+                }
+                
+                toast.innerHTML = `
+                    <div class="toast-content">
+                        <i class="fas ${icon} toast-icon ${type}"></i>
+                        <span class="toast-message">${message}</span>
+                    </div>
+                    <button class="toast-close">&times;</button>
+                `;
+                
+                toastContainer.appendChild(toast);
+                
+                // Auto remove toast after 3 seconds
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 300);
+                }, 3000);
+                
+                // Close button functionality
+                toast.querySelector('.toast-close').addEventListener('click', function() {
+                    toast.style.opacity = '0';
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 300);
+                });
+            }
+
+            // Show an initial welcome toast
+            setTimeout(() => {
+                showToast('Welcome to the admin dashboard!', 'info');
+            }, 500);
+        });
+    </script>
+</body>
+</html>

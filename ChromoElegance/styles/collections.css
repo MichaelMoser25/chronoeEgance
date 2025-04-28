@@ -1,0 +1,490 @@
+/* Collections Page Specific Styles */
+
+/* Collections Header */
+.collections-header {
+    height: 50vh;
+    background: linear-gradient(rgba(2,6,23,0.7), rgba(2,6,23,0.7)), url('https://source.unsplash.com/random/1200x800/?luxury,watches,collection') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light);
+    padding: 0 2rem;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+    color: var(--light);
+    opacity: 0.8;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumb a:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
+.breadcrumb-separator {
+    color: var(--accent);
+}
+
+.collections-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.collections-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent);
+}
+
+.collections-description {
+    max-width: 800px;
+    line-height: 1.8;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+/* Collection Categories */
+.collection-categories {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.collection-showcase {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5rem;
+    gap: 4rem;
+}
+
+.collection-showcase.reverse {
+    flex-direction: row-reverse;
+}
+
+.collection-image {
+    flex: 1;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    border-radius: 10px;
+    height: 500px;
+}
+
+.collection-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+    z-index: 1;
+}
+
+.collection-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.collection-showcase:hover .collection-image img {
+    transform: scale(1.05);
+}
+
+.collection-info {
+    flex: 1;
+    padding: 2rem;
+}
+
+.collection-info h2 {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.collection-info h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent);
+}
+
+.collection-info p {
+    line-height: 1.8;
+    color: var(--secondary);
+    margin-bottom: 2rem;
+}
+
+.collection-features {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.feature i {
+    font-size: 1.2rem;
+    color: var(--accent);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(220,165,76,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature span {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+/* Featured Collection Watches */
+.featured-collection-watches {
+    background-color: #f8fafc;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent);
+}
+
+.section-subtitle {
+    color: var(--secondary);
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.watches-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.watch-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.watch-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.watch-image {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.watch-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.watch-card:hover .watch-image img {
+    transform: scale(1.1);
+}
+
+.watch-tags {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.watch-tag {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.luxury-tag {
+    background-color: #f59e0b;
+    color: var(--dark);
+}
+
+.sport-tag {
+    background-color: #0284c7;
+    color: white;
+}
+
+.vintage-tag {
+    background-color: #7c3aed;
+    color: white;
+}
+
+.casual-tag {
+    background-color: #10b981;
+    color: white;
+}
+
+.watch-details {
+    padding: 1.5rem;
+}
+
+.watch-details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.watch-details p {
+    color: var(--secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.watch-price {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.watch-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wishlist-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.wishlist-btn i {
+    color: var(--secondary);
+    font-size: 1.2rem;
+}
+
+.wishlist-btn:hover i {
+    color: var(--danger);
+}
+
+.add-to-cart-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--accent);
+    color: var(--dark);
+}
+
+.view-all-container {
+    margin-top: 3rem;
+}
+
+/* Collection Quote */
+.collection-quote {
+    background: linear-gradient(rgba(2,6,23,0.9), rgba(2,6,23,0.9)), url('https://source.unsplash.com/random/1200x800/?luxury,background') center/cover no-repeat;
+    padding: 6rem 2rem;
+    text-align: center;
+    color: var(--light);
+}
+
+.quote-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.quote-container i {
+    font-size: 3rem;
+    color: var(--accent);
+    opacity: 0.7;
+}
+
+blockquote {
+    font-size: 2rem;
+    line-height: 1.5;
+    margin: 2rem 0;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.quote-attribution {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Collection Benefits */
+.collection-benefits {
+    padding: 5rem 2rem;
+    background-color: white;
+}
+
+.benefit-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.benefit {
+    text-align: center;
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.benefit:hover {
+    transform: translateY(-10px);
+}
+
+.benefit-icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--accent);
+    color: var(--dark);
+    font-size: 1.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.benefit h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.benefit p {
+    color: var(--secondary);
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .benefit-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .collections-title {
+        font-size: 2.5rem;
+    }
+    
+    .collection-image {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .collection-showcase {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .collection-showcase.reverse {
+        flex-direction: column;
+    }
+    
+    .collection-image {
+        width: 100%;
+    }
+    
+    .collections-title {
+        font-size: 2rem;
+    }
+    
+    blockquote {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .collections-header {
+        height: auto;
+        padding: 6rem 1rem 3rem;
+    }
+    
+    .benefit-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .watches-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
+    
+    .collections-title {
+        font-size: 1.8rem;
+    }
+    
+    .collection-info h2 {
+        font-size: 1.8rem;
+    }
+    
+    blockquote {
+        font-size: 1.2rem;
+    }
+}

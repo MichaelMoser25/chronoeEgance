@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrono24 | Premium Watches</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/enhanced-style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-clock"></i>
+                <h1>Chrono<span>Elegance</span></h1>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="../pages/collections.html">Collections</a></li>
+                    <li><a href="../pages/mens-watches.html">Rolex</a></li>
+                    <li><a href="#">Cartier</a></li>
+                    <li><a href="#">Ap</a></li>
+                    <li><a href="#">Tag</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-icons">
+                <div class="nav-icon">
+                    <i class="fas fa-search search-icon"></i>
+                    <div class="search-dropdown">
+                        <input type="text" placeholder="Search for watches..." class="search-input">
+                        <div class="search-results"></div>
+                    </div>
+                </div>
+                <div class="nav-icon">
+                    <i class="far fa-user"></i>
+                </div>
+                <div class="nav-icon">
+                    <i class="far fa-heart"></i>
+                    <div class="wishlist-dropdown">
+                        <h3>Wishlist</h3>
+                        <div class="wishlist-items">
+                            <!-- Wishlist items will be added dynamically -->
+                            <div class="empty-wishlist">Your wishlist is empty</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                    <div class="cart-dropdown">
+                        <h3>Shopping Cart</h3>
+                        <div class="cart-items">
+                            <!-- Cart items will be added dynamically -->
+                            <div class="empty-cart">Your cart is empty</div>
+                        </div>
+                        <div class="cart-total">
+                            <span>Total:</span>
+                            <span class="total-amount">$0.00</span>
+                        </div>
+                        <button class="btn cart-checkout">Checkout</button>
+                    </div>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay">
+        <div class="search-overlay-content">
+            <div class="search-close"><i class="fas fa-times"></i></div>
+            <h2>Search Our Collection</h2>
+            <div class="search-form">
+                <input type="text" class="search-overlay-input" placeholder="Type watch name, brand or collection...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="popular-searches">
+                <h3>Popular Searches</h3>
+                <div class="search-tags">
+                    <a href="#" class="search-tag">Rolex</a>
+                    <a href="#" class="search-tag">Cartier</a>
+                    <a href="#" class="search-tag">Chronograph</a>
+                    <a href="#" class="search-tag">Automatic</a>
+                    <a href="#" class="search-tag">Diamond</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero video-bg">
+        <div class="video-container">
+            <video autoplay muted loop id="hero-video">
+                <source src="../videos/watch-hero.mp4" type="video/mp4">
+                <!-- Fallback image if video doesn't load -->
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Discover Timeless <span>Elegance</span></h1>
+            <p>Explore our exquisite collection of premium watches that blend masterful craftsmanship with sophisticated design. Each timepiece tells a unique story of precision and style.</p>
+            <a href="#" class="btn">Shop Collection</a>
+            <a href="#" class="btn btn-secondary">Learn More</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Brand Strip -->
+    <section class="brand-strip">
+        <div class="brand-container">
+            <div class="brand-logo">
+                <img src="../images/brand-logo-1.png" alt="Rolex" />
+            </div>
+            <div class="brand-logo">
+                <img src="../images/brand-logo-2.png" alt="Cartier" />
+            </div>
+            <div class="brand-logo">
+                <img src="../images/brand-logo-3.png" alt="Omega" />
+            </div>
+            <div class="brand-logo">
+                <img src="../images/brand-logo-4.png" alt="Audemars Piguet" />
+            </div>
+            <div class="brand-logo">
+                <img src="../images/brand-logo-5.png" alt="Tag Heuer" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <!-- <section class="section" id="featured-products">
+        <div class="section-title">
+            <h2>Featured Watches</h2>
+            <p>Discover our most popular timepieces, each one a testament to exceptional craftsmanship and design.</p>
+        </div>
+        
+        <div class="tab-controls">
+            <button class="tab-btn active" data-category="all">All</button>
+            <button class="tab-btn" data-category="men">Men's</button>
+            <button class="tab-btn" data-category="women">Women's</button>
+            <button class="tab-btn" data-category="luxury">Luxury</button>
+            <button class="tab-btn" data-category="sport">Sport</button>
+        </div>
+        
+        <div class="products-container">
+        </div>
+        
+        <div class="view-all-btn">
+            <a href="#" class="btn">View All Watches</a>
+        </div>
+    </section> -->
+
+    <!-- Featured Watch Banner -->
+    <section class="featured-banner">
+        <div class="featured-content">
+            <div class="featured-text">
+                <h2>Royal Automatic Limited Edition</h2>
+                <p>Introducing our signature timepiece crafted with 18K gold and powered by our in-house mechanical movement. With only 100 pieces available worldwide, this exceptional watch represents the pinnacle of horological excellence.</p>
+                <div class="feature-points">
+                    <div class="feature-point"><i class="fas fa-check"></i> 18K Gold Case</div>
+                    <div class="feature-point"><i class="fas fa-check"></i> 72-Hour Power Reserve</div>
+                    <div class="feature-point"><i class="fas fa-check"></i> Sapphire Crystal</div>
+                    <div class="feature-point"><i class="fas fa-check"></i> Limited to 100 Pieces</div>
+                </div>
+                <a href="#" class="btn featured-btn">Explore Limited Edition</a>
+            </div>
+            <div class="featured-image">
+                <img src="../images/featured-watch.png" alt="Royal Automatic Limited Edition">
+                <div class="price-tag">$12,500</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections -->
+    <section class="section collections">
+        <div class="section-title">
+            <h2>Our Collections</h2>
+            <p>Explore our carefully curated collections designed for different occasions and personalities.</p>
+        </div>
+        
+        <div class="collections-container">
+            <!-- Collection 1 -->
+            <div class="collection-card">
+                <img src="https://source.unsplash.com/random/400x400/?luxury,watch,collection" alt="Luxury Collection">
+                <div class="collection-overlay">
+                    <h3 class="collection-title">Luxury Collection</h3>
+                    <p class="collection-subtitle">Timeless elegance for distinguished individuals</p>
+                    <a href="#" class="collection-link">Explore Collection <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Collection 2 -->
+            <div class="collection-card">
+                <img src="https://source.unsplash.com/random/400x400/?sport,watch" alt="Sport Collection">
+                <div class="collection-overlay">
+                    <h3 class="collection-title">Sport Collection</h3>
+                    <p class="collection-subtitle">Durable timepieces for the active lifestyle</p>
+                    <a href="#" class="collection-link">Explore Collection <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Collection 3 -->
+            <div class="collection-card">
+                <img src="https://source.unsplash.com/random/400x400/?vintage,watch" alt="Vintage Collection">
+                <div class="collection-overlay">
+                    <h3 class="collection-title">Vintage Collection</h3>
+                    <p class="collection-subtitle">Classic designs inspired by timeless eras</p>
+                    <a href="#" class="collection-link">Explore Collection <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="section-title">
+            <h2>Why Choose ChronoElegance</h2>
+            <p>We offer more than just timepieces - we provide an unparalleled experience of luxury and service</p>
+        </div>
+        
+        <div class="benefits-container">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Authentic Guarantee</h3>
+                <p>Every timepiece comes with a certificate of authenticity and a 5-year international warranty.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h3>Free Global Shipping</h3>
+                <p>Enjoy complimentary express shipping on all orders over $1,000, delivered to your door worldwide.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Expert Servicing</h3>
+                <p>Access to our network of certified watchmakers for maintenance and repairs throughout your watch's lifetime.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <h3>30-Day Returns</h3>
+                <p>Not completely satisfied? Return your unworn purchase within 30 days for a full refund.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="section-title">
+            <h2>What Our Customers Say</h2>
+            <p>We pride ourselves on exceptional quality and service that keeps our customers coming back.</p>
+        </div>
+        
+        <div class="testimonials-container">
+            <div class="testimonial-slide active">
+                <p class="testimonial-quote">I've been collecting watches for over 20 years, and the craftsmanship and attention to detail of the Celestial Chronograph is simply unmatched at this price point. Exceptional quality.</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://source.unsplash.com/random/100x100/?portrait,man" alt="James Mitchell">
+                    </div>
+                    <div class="author-details">
+                        <h4>James Mitchell</h4>
+                        <p>Watch Collector</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-slide">
+                <p class="testimonial-quote">The Alpine Reserve exceeded all my expectations. The customer service was impeccable, and the watch itself is a masterpiece that I wear with pride every day.</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://source.unsplash.com/random/100x100/?portrait,woman" alt="Emma Reynolds">
+                    </div>
+                    <div class="author-details">
+                        <h4>Emma Reynolds</h4>
+                        <p>CEO, Reynolds Innovations</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-slide">
+                <p class="testimonial-quote">From the moment I unboxed my Royal Automatic, I knew this was something special. The attention to detail is remarkable, and it gets compliments everywhere I go.</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://source.unsplash.com/random/100x100/?portrait,man,suit" alt="David Chen">
+                    </div>
+                    <div class="author-details">
+                        <h4>David Chen</h4>
+                        <p>Finance Director</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-controls">
+                <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="testimonial-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+                <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Gallery -->
+    <section class="instagram-gallery">
+        <div class="section-title">
+            <h2>Follow Us On Instagram</h2>
+            <p>@chronoelegance</p>
+        </div>
+        
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/300x300/?luxury,watch,lifestyle" alt="Instagram Post">
+                <div class="gallery-overlay">
+                    <i class="fab fa-instagram"></i>
+                    <span>View Post</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/300x300/?watch,closeup" alt="Instagram Post">
+                <div class="gallery-overlay">
+                    <i class="fab fa-instagram"></i>
+                    <span>View Post</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/300x300/?watch,wrist" alt="Instagram Post">
+                <div class="gallery-overlay">
+                    <i class="fab fa-instagram"></i>
+                    <span>View Post</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/300x300/?luxury,lifestyle" alt="Instagram Post">
+                <div class="gallery-overlay">
+                    <i class="fab fa-instagram"></i>
+                    <span>View Post</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/300x300/?watch,mechanical" alt="Instagram Post">
+                <div class="gallery-overlay">
+                    <i class="fab fa-instagram"></i>
+                    <span>View Post</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://source.unsplash.com/random/300x300/?chronograph,watch" alt="Instagram Post">
+                <div class="gallery-overlay">
+                    <i class="fab fa-instagram"></i>
+                    <span>View Post</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2 class="newsletter-title">Subscribe to Our Newsletter</h2>
+            <p class="newsletter-text">Be the first to know about new collections, exclusive offers, and special events.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address">
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column footer-about">
+                <div class="footer-logo">
+                    <i class="fas fa-clock"></i>
+                    <h2>Chrono<span>Elegance</span></h2>
+                </div>
+                <p>We are dedicated to providing exceptional timepieces that combine masterful craftsmanship with elegant design, creating watches that are not just accessories but heirlooms.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Collections</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> New Arrivals</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column footer-links">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Shipping Policy</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Returns & Exchanges</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Watch Care</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Size Guide</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-details">
+                        123 Luxury Avenue<br>
+                        New York, NY 10001
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="contact-details">
+                        +1 (555) 123-4567
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-details">
+                        info@chronoelegance.com
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2025 ChronoElegance. All Rights Reserved.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa payment-method"></i>
+                <i class="fab fa-cc-mastercard payment-method"></i>
+                <i class="fab fa-cc-amex payment-method"></i>
+                <i class="fab fa-cc-paypal payment-method"></i>
+                <i class="fab fa-cc-apple-pay payment-method"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Admin Login Modal -->
+    <div class="admin-modal" id="admin-modal">
+        <div class="admin-modal-content">
+            <span class="admin-close">&times;</span>
+            <h2>Admin Login</h2>
+            <form id="admin-login-form">
+                <div class="form-group">
+                    <label for="admin-username">Username</label>
+                    <input type="text" id="admin-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <input type="password" id="admin-password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/enhanced.js"></script>
+</body>
+</html>
